@@ -853,6 +853,33 @@ content{
         <button class="acara-btn">Kami Menanti Kehadiran Anda</button>
 
     </div>
+
+        <!-- COUNTDOWN -->
+    <div class="date-box">
+        <h2 class="title">Date</h2>
+
+        <div class="time-grid">
+            <div>
+                <div class="circle" id="day">00</div>
+                <p>Day</p>
+            </div>
+            <div>
+                <div class="circle" id="hour">00</div>
+                <p>Hour</p>
+            </div>
+            <div>
+                <div class="circle" id="minute">00</div>
+                <p>Minute</p>
+            </div>
+            <div>
+                <div class="circle" id="second">00</div>
+                <p>Second</p>
+            </div>
+        </div>
+
+        <button>Save the Date</button>
+    </div>
+
     <!-- HADIAH -->
    
     <!-- HADIAH PERNIKAHAN -->
@@ -910,31 +937,7 @@ content{
         <button>Save the Date</button>
     </div>
 
-    <!-- ACARA -->
-   <!-- GANTI BAGIAN ACARA LAMA DENGAN INI -->
 
-    <div class="card2 acara-box">
-
-        <h2 class="acara-title">Save The Date</h2>
-
-        <div class="acara-item">
-            <span>📅</span>
-            <p>Minggu, 31 Mei 2026</p>
-        </div>
-
-        <div class="acara-item">
-            <span>⏰</span>
-            <p>09.00 WIB - Selesai</p>
-        </div>
-
-        <div class="acara-item">
-            <span>📍</span>
-            <p>Kp. Bitung Ratna Rt01/02 (samping RA-ALIF)</p>
-        </div>
-
-        <button class="acara-btn">Kami Menanti Kehadiran Anda</button>
-
-    </div>
 
     <!-- UCAPAN -->
     <div class="card2">
