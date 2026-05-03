@@ -909,36 +909,6 @@ content{
     </div>
 
 </div>
-
-   
-    <!-- COUNTDOWN -->
-    <div class="date-box">
-        <h2 class="title">Date</h2>
-
-        <div class="time-grid">
-            <div>
-                <div class="circle" id="day">00</div>
-                <p>Day</p>
-            </div>
-            <div>
-                <div class="circle" id="hour">00</div>
-                <p>Hour</p>
-            </div>
-            <div>
-                <div class="circle" id="minute">00</div>
-                <p>Minute</p>
-            </div>
-            <div>
-                <div class="circle" id="second">00</div>
-                <p>Second</p>
-            </div>
-        </div>
-
-        <button>Save the Date</button>
-    </div>
-
-
-
     <!-- UCAPAN -->
     <div class="card2">
         <h3>💌 Ucapan</h3>
