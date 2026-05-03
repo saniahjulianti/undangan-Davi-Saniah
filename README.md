@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Undangan Pernikahan</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 <style>
 * {
     margin: 0;
@@ -98,14 +98,13 @@ button {
 }
 
 /* FOTO RESPONSIVE */
-.box img {
-    width: 35vw;
-    max-width: 120px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+.box img{
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: center top; /* fokus ke wajah */
     border: 4px solid #ff4d6d;
-    margin-bottom: 10px;
 }
 
 /* DATE BOX */
@@ -421,19 +420,324 @@ input, textarea {
     padding:12px;
     border-radius:30px;
 }
+
+/* EFEK BUNGA JATUH */
+.falling-flowers{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.flower{
+    position: absolute;
+    top: -50px;
+    font-size: 20px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall{
+    0%{
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    10%{
+        opacity: 0.9;
+    }
+    100%{
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.wedding-title{
+    font-family: 'Georgia', serif;
+    font-size: 42px;
+    font-weight: bold;
+    text-align: center;
+    color: #8b0000;
+    letter-spacing: 2px;
+    position: relative;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Garis hias kiri kanan */
+.wedding-title::before,
+.wedding-title::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background: #d4af37;
+}
+
+.wedding-title::before{
+    left: -70px;
+}
+
+.wedding-title::after{
+    right: -70px;
+}
+
+/* UCAPAN */
+.card2 h3{
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    color:#8b0000;
+    margin-bottom:15px;
+}
+
+/* INPUT / TEXTAREA */
+.card2 input,
+.card2 textarea{
+    font-family:'Segoe UI', sans-serif;
+    font-size:15px;
+    color:#333;
+    border:1px solid #e5d3d8;
+    background:#fff;
+}
+
+.card2 textarea{
+    min-height:100px;
+    resize:none;
+}
+
+/* PENUTUP */
+.penutup-title{
+    font-family:'Playfair Display', serif;
+    font-size:34px;
+    color:#8b0000;
+    margin-bottom:15px;
+}
+
+.penutup-text{
+    font-family:'Segoe UI', sans-serif;
+    font-size:16px;
+    line-height:1.8;
+    color:#4b3a34;
+    margin-bottom:20px;
+}
+
+.penutup-nama{
+    font-family:'Great Vibes', cursive;
+    font-size:36px;
+    color:#c2185b;
+    font-weight:normal;
+}
+
+.wedding-title{
+    font-family:'Great Vibes', cursive;
+    font-size:52px;
+    font-weight:normal;
+    color:#8b0000;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+    font-weight:700;
+    color:#8b0000;
+    text-align:center;
+    margin-bottom:15px;
+    letter-spacing:1px;
+    text-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.nama-love{
+    font-family:'Great Vibes', cursive;
+    font-size:34px;
+    font-weight:normal;
+    color:#c2185b;
+    text-align:center;
+    margin-bottom:12px;
+}
+.nama-cover{
+    font-family:'Great Vibes', cursive;
+    font-size:64px;
+    font-weight:normal;
+    color: #ffffff;
+    text-align:center;
+    line-height:1.2;
+    text-shadow:0 4px 15px rgba(0,0,0,0.25);
+}
+.penutup-box{
+    background:linear-gradient(180deg,#ffffff,#fff8fa);
+    padding:35px 25px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    border:1px solid #f4dce2;
+    margin-top:30px;
+}
+
+.penutup-ornamen{
+    font-size:22px;
+    color:#d4af37;
+    margin-bottom:12px;
+}
+
+.penutup-title{
+    font-family:'Playfair Display', serif;
+    font-size:34px;
+    color:#8b0000;
+    margin-bottom:15px;
+}
+
+.penutup-text{
+    font-size:15px;
+    line-height:1.9;
+    color:#555;
+    margin-bottom:15px;
+}
+
+.penutup-sub{
+    font-style:italic;
+    color:#c2185b;
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+.penutup-divider{
+    width:70px;
+    height:2px;
+    background:#d4af37;
+    margin:20px auto;
+    border-radius:10px;
+}
+
+.penutup-nama{
+    font-family:'Great Vibes', cursive;
+    font-size:42px;
+    color:#8b0000;
+    font-weight:normal;
+}
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+.top-text{
+    animation:floatHero 4s ease-in-out infinite;
+}
+
+#cover button{
+    background: linear-gradient(135deg,#c1121f,#8b0000);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    animation: pulse 2s infinite;
+    box-shadow: 0 8px 20px rgba(139,0,0,.35);
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:
+            0 0 0 0 rgba(193,18,31,.55),
+            0 8px 20px rgba(139,0,0,.35);
+    }
+    70%{
+        box-shadow:
+            0 0 0 18px rgba(193,18,31,0),
+            0 8px 20px rgba(139,0,0,.35);
+    }
+    100%{
+        box-shadow:
+            0 0 0 0 rgba(193,18,31,0),
+            0 8px 20px rgba(139,0,0,.35);
+    }
+}
+content{
+    background: url('111.jpg') center no-repeat;
+    background-size: 800px auto;
+}
+<style>
+/* CSS kamu yang lama ... */
+
+/* TARUH DI SINI */
+.card,
+.card2,
+.box,
+.quote-box,
+.date-box,
+.lokasi-box,
+.hadiah-box,
+.penutup-box,
+.acara-box,
+.rekening-box{
+    transition: all .35s ease;
+    cursor: pointer;
+}
+
+.card:hover,
+.card2:hover,
+.box:hover,
+.quote-box:hover,
+.date-box:hover,
+.lokasi-box:hover,
+.hadiah-box:hover,
+.penutup-box:hover,
+.acara-box:hover,
+.rekening-box:hover{
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(139,0,0,.15);
+}
+
+.card:active,
+.card2:active,
+.box:active,
+.quote-box:active,
+.date-box:active,
+.lokasi-box:active,
+.hadiah-box:active,
+.penutup-box:active,
+.acara-box:active,
+.rekening-box:active{
+    transform: scale(0.98);
+}
+.reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all .8s ease;
+}
+
+.reveal.show{
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
+
+
 
 
 </head>
 
 <body>
-
+<div class="falling-flowers"></div>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <!-- COVER -->
 <div id="cover">
     <div class="top-text">
-        <h2>The Wedding Of</h2>
-        <h1>Saniah & Davi</h1>
-    </div>
+<h2 class="wedding-title">A Journey of Love Begins</h2>
+<h1 class="nama-cover">Davi & Saniah</h1>    </div>
 
     <div class="card">
         <p>Kepada Yth.</p>
@@ -449,11 +753,9 @@ input, textarea {
 
     <!-- KATA KATA -->
     <div class="section">
-        <h2>The Wedding Of</h2>
-    </div>
+<h2 class="section-title">The Wedding Of</h2>    </div>
         <div class="quote-box">
-            <h5>Davi & Saniah</h5>
-        <p>
+<h5 class="nama-love">Davi & Saniah</h5>        <p>
             "Dan di antara tanda-tanda kebesaran-Nya, 
             Dia menciptakan pasangan hidup agar kamu menemukan ketenangan di dalamnya, 
             serta menjadikan cinta dan kasih sayang di antara kalian."
@@ -524,6 +826,31 @@ input, textarea {
             Jawa Barat 16720
         </p>
 
+
+    </div>
+    <!-- ACARA -->
+   <!-- GANTI BAGIAN ACARA LAMA DENGAN INI -->
+
+    <div class="card2 acara-box">
+
+        <h2 class="acara-title">Save The Date</h2>
+
+        <div class="acara-item">
+            <span>📅</span>
+            <p>Minggu, 31 Mei 2026</p>
+        </div>
+
+        <div class="acara-item">
+            <span>⏰</span>
+            <p>09.00 WIB - Selesai</p>
+        </div>
+
+        <div class="acara-item">
+            <span>📍</span>
+            <p>Kp. Bitung Ratna Rt01/02 (samping RA-ALIF)</p>
+        </div>
+
+        <button class="acara-btn">Kami Menanti Kehadiran Anda</button>
 
     </div>
     <!-- HADIAH -->
@@ -602,7 +929,7 @@ input, textarea {
 
         <div class="acara-item">
             <span>📍</span>
-            <p>Gedung Serbaguna</p>
+            <p>Kp. Bitung Ratna Rt01/02 (samping RA-ALIF)</p>
         </div>
 
         <button class="acara-btn">Kami Menanti Kehadiran Anda</button>
@@ -619,19 +946,27 @@ input, textarea {
 
     <!-- TAMBAHKAN DI PALING BAWAH SEBELUM </div> CONTENT -->
 
-    <div class="card2 penutup-box">
+  <div class="card2 penutup-box">
 
-        <h2 class="penutup-title">Terima Kasih</h2>
+    <div class="penutup-ornamen">❀ ✦ ❀</div>
 
-        <p class="penutup-text">
-            Merupakan suatu kehormatan dan kebahagiaan bagi kami<br>
-            apabila Bapak/Ibu/Saudara/i berkenan hadir dan<br>
-            memberikan doa restu kepada kami.
-        </p>
+    <h2 class="penutup-title">Terima Kasih</h2>
 
-        <h3 class="penutup-nama">Davi & Saniah</h3>
+    <p class="penutup-text">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami
+        apabila Bapak/Ibu/Saudara/i berkenan hadir untuk
+        memberikan doa restu pada hari bahagia kami.
+    </p>
 
-    </div>
+    <p class="penutup-sub">
+        Kehadiran dan doa Anda adalah hadiah terindah bagi kami ✨
+    </p>
+
+    <div class="penutup-divider"></div>
+
+    <h3 class="penutup-nama">Davi & Saniah</h3>
+
+</div>
 
     <!-- AUDIO -->
     <audio id="musik" loop>
@@ -698,7 +1033,34 @@ function openModal(img) {
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
+
+
+// EFEK BUNGA JATUH
+const flowerContainer = document.querySelector(".falling-flowers");
+
+function createFlower() {
+    const flower = document.createElement("div");
+    flower.classList.add("flower");
+
+    const flowers = ["🌸", "🌺", "💮", "🌷"];
+    flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize = (Math.random() * 15 + 15) + "px";
+    flower.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    flower.style.opacity = Math.random();
+
+    flowerContainer.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, 10000);
+}
+
+setInterval(createFlower, 400);
+
 </script>
+
 
 </body>
 </html>
