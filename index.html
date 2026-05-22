@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Undangan Pernikahan</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
 * {
     margin: 0;
@@ -18,16 +19,182 @@ body {
 }
 
 /* COVER */
-#cover {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('s.jpeg') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 20px;
-    color: white;
+#cover{
+    height:100vh;
+
+    /* FOTO + EFEK CERAH */
+    background:
+    linear-gradient(
+        rgba(255,255,255,0.18),
+        rgba(255,255,255,0.18)
+    ),
+    url('saniah.jpeg');
+
+    background-repeat:no-repeat;
+
+    /* DEFAULT */
+    background-position:center center;
+    background-size:contain;
+
+    background-color:#f8f6f8;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:40px 20px;
+    color:white;
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* LAPTOP / DESKTOP */
+@media(min-width:769px){
+
+#cover{
+    /* FOTO FULL & TENGAH */
+    background-size:750px auto;
+
+    /* TURUNKAN FOTO */
+    background-position:center 60%;
+}
+
+}
+
+/* HP */
+@media(max-width:768px){
+
+    #cover{
+    min-height:100vh;
+
+    /* FOTO FULL */
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    /* POSISI FOTO AGAR WAJAH PAS */
+    background-position:center 65%;
+
+    /* AGAR ISI DI TENGAH */
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    text-align:center;
+
+    padding:30px 15px;
+
+    /* EFEK GELAP TIPIS BIAR TULISAN JELAS */
+    position:relative;
+    overflow:hidden;
+}
+
+/* OVERLAY PUTIH TIPIS */
+#cover::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(1px);
+    z-index:1;
+}
+
+/* SEMUA ISI DI ATAS OVERLAY */
+#cover > *{
+    position:relative;
+    z-index:2;
+}
+
+/* JUDUL */
+.wedding-title{
+    font-size:42px;
+    color:#a00000;
+    font-family:cursive;
+    line-height:1.3;
+    margin-top:20px;
+    text-shadow:0 2px 8px rgba(255,255,255,0.8);
+}
+
+/* ORNAMEN */
+.sub-title{
+    font-size:22px;
+    color:#d88a00;
+    margin:10px 0;
+}
+
+/* NAMA */
+.nama-cover{
+    font-size:48px;
+    color:#ff6b9d;
+    font-family:cursive;
+    margin-top:10px;
+    text-shadow:0 2px 10px rgba(255,255,255,0.9);
+}
+
+/* KOTAK UNDANGAN */
+.cover-box{
+    background:rgba(255,255,255,0.75);
+    padding:25px 20px;
+    border-radius:30px;
+    backdrop-filter:blur(8px);
+    width:90%;
+    max-width:420px;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* TOMBOL */
+.open-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:linear-gradient(to bottom,#d60016,#a80000);
+    color:white;
+    padding:18px 35px;
+    border-radius:20px;
+    font-size:28px;
+    font-weight:bold;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(214,0,22,0.4);
+    transition:0.3s;
+}
+
+.open-btn:hover{
+    transform:scale(1.05);
+}
+
+/* RESPONSIVE HP */
+@media(max-width:768px){
+
+    #cover{
+        background-position:center 60%;
+        padding:20px 12px;
+    }
+
+    .wedding-title{
+        font-size:30px;
+    }
+
+    .nama-cover{
+        font-size:38px;
+    }
+
+    .cover-box{
+        width:95%;
+        padding:20px 15px;
+    }
+
+    .open-btn{
+        width:100%;
+        font-size:22px;
+        padding:16px;
+    }
+}
+
+/* KARTU */
+.card{
+    margin-bottom:35px;
+}
 }
 
 .top-text {
@@ -62,17 +229,73 @@ button {
 }
 
 /* CONTENT */
-#content {
-    display: none;
-    padding: 20px;
+/* CONTENT BACKGROUND ELEGAN */
+#content{
+    display:none;
+    padding:20px;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
 
-    background: 
-        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.9)),
-        url('bunga.jpg') center/cover no-repeat;
+    background:
+    radial-gradient(circle at top left,
+        rgba(255,192,203,0.35) 0%,
+        transparent 28%
+    ),
 
-    min-height: 100vh;
+    radial-gradient(circle at top right,
+        rgba(255,220,230,0.28) 0%,
+        transparent 30%
+    ),
+
+    radial-gradient(circle at bottom left,
+        rgba(255,182,193,0.22) 0%,
+        transparent 35%
+    ),
+
+    linear-gradient(
+        180deg,
+        #fffdfd 0%,
+        #fff6f8 20%,
+        #ffeef3 45%,
+        #fff4f7 70%,
+        #ffffff 100%
+    );
+
+    background-attachment: fixed;
 }
 
+/* EFEK CAHAYA */
+#content::before{
+    content:'';
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:rgba(255,255,255,0.45);
+    border-radius:50%;
+    top:-120px;
+    left:-120px;
+    filter:blur(80px);
+    z-index:0;
+}
+
+#content::after{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(255,192,203,0.25);
+    border-radius:50%;
+    bottom:-100px;
+    right:-100px;
+    filter:blur(90px);
+    z-index:0;
+}
+
+#content > *{
+    position:relative;
+    z-index:2;
+}
 /* SECTION */
 .section {
     text-align: center;
@@ -665,11 +888,7 @@ input, textarea {
             0 8px 20px rgba(139,0,0,.35);
     }
 }
-content{
-    background: url('111.jpg') center no-repeat;
-    background-size: 800px auto;
-}
-<style>
+
 /* CSS kamu yang lama ... */
 
 /* TARUH DI SINI */
@@ -722,6 +941,268 @@ content{
 .reveal.show{
     opacity: 1;
     transform: translateY(0);
+}
+
+/* TAMBAHKAN CSS INI DI PALING BAWAH AGAR LEBIH ELEGAN *//* SMOOTH SCROLL */
+html{
+    scroll-behavior:smooth;
+}
+
+/* BODY */
+body{
+    background:#fff8fa;
+    color:#4b3a34;
+}
+
+/* COVER LEBIH MEWAH */
+#cover{
+    position:relative;
+}
+
+#cover::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.08)
+    );
+    z-index:0;
+}
+
+#cover > *{
+    position:relative;
+    z-index:2;
+}
+
+/* TITLE */
+.wedding-title{
+    font-family:'Great Vibes', cursive;
+    font-size:70px;
+    color:#fff;
+    text-shadow:0 5px 20px rgba(0,0,0,.35);
+    margin-bottom:5px;
+}
+
+.nama-cover{
+    font-size:78px;
+    color:#fff;
+    text-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+
+/* SUBTITLE */
+.top-text::before{
+    content:'✦ Wedding Invitation ✦';
+    display:block;
+    color:#fff;
+    letter-spacing:4px;
+    font-size:13px;
+    margin-bottom:15px;
+    opacity:.9;
+}
+
+/* CARD COVER */
+.card{
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.3);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.25);
+    border-radius:30px;
+    padding:28px;
+    color:#fff;
+}
+
+.card p{
+    color:#fff;
+    line-height:1.7;
+}
+
+/* BUTTON */
+button,
+.open-btn,
+.acara-btn,
+.lokasi-btn,
+.hadiah-btn{
+    background:linear-gradient(135deg,#d4af37,#8b0000) !important;
+    border:none;
+    transition:.35s ease;
+    box-shadow:0 10px 20px rgba(139,0,0,.2);
+}
+
+button:hover,
+.open-btn:hover,
+.acara-btn:hover,
+.lokasi-btn:hover,
+.hadiah-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 30px rgba(139,0,0,.25);
+}
+
+/* SECTION */
+.section-title{
+    position:relative;
+    display:inline-block;
+    padding-bottom:10px;
+}
+
+.section-title::after{
+    content:'';
+    width:70%;
+    height:3px;
+    background:linear-gradient(to right,#d4af37,#8b0000);
+    position:absolute;
+    left:15%;
+    bottom:0;
+    border-radius:10px;
+}
+
+/* BOX MEMPELAI */
+.box{
+    background:linear-gradient(180deg,#fff,#fff8fa);
+    border:1px solid #f1d8df;
+    border-radius:28px;
+    overflow:hidden;
+    padding:25px 20px;
+}
+
+.box img{
+    width:160px;
+    height:160px;
+    border:5px solid #fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.box h3{
+    margin-top:15px;
+    font-size:32px;
+    color:#8b0000;
+    font-family:'Great Vibes', cursive;
+    font-weight:normal;
+}
+
+/* QUOTE */
+.quote-box{
+    background:linear-gradient(180deg,#fff,#fff7fa);
+    border:1px solid #f4dbe2;
+}
+
+.quote-box p{
+    font-size:16px;
+    line-height:2;
+    color:#555;
+}
+
+/* GALLERY */
+.gallery img{
+    border-radius:24px;
+    background:#fff;
+    transition:.4s ease;
+}
+
+.gallery img:hover{
+    transform:translateY(-5px) scale(1.02);
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+/* DATE */
+.date-box{
+    background:linear-gradient(180deg,#fff,#fff9fb);
+    border:1px solid #f0d9de;
+}
+
+.circle{
+    width:70px;
+    height:70px;
+    border:none;
+    background:linear-gradient(135deg,#fff,#ffe7ef);
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    font-weight:bold;
+    color:#8b0000;
+    font-size:18px;
+}
+
+/* ACARA */
+.acara-item{
+    border:none;
+    background:linear-gradient(180deg,#fff,#fff8fa);
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+/* PENUTUP */
+.penutup-box{
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #fff4f8
+        );
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+    background:linear-gradient(135deg,#d4af37,#8b0000);
+    width:60px;
+    height:60px;
+    font-size:24px;
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.wedding-title{
+    font-size:48px;
+}
+
+.nama-cover{
+    font-size:58px;
+}
+
+.card{
+    width:95%;
+}
+
+.box img{
+    width:140px;
+    height:140px;
+}
+
+.circle{
+    width:60px;
+    height:60px;
+}
+/* EFEK KACA ELEGAN */
+.card2,
+.box,
+.quote-box,
+.date-box,
+.lokasi-box,
+.hadiah-box,
+.penutup-box,
+.acara-box{
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.5);
+
+    box-shadow:
+        0 10px 30px rgba(255,182,193,0.15),
+        0 4px 10px rgba(0,0,0,0.05);
+
+}
 }
 </style>
 
@@ -828,6 +1309,33 @@ content{
 
 
     </div>
+
+    <!-- COUNTDOWN -->
+    <div class="date-box">
+        <h2 class="title">Date</h2>
+
+        <div class="time-grid">
+            <div>
+                <div class="circle" id="day">00</div>
+                <p>Day</p>
+            </div>
+            <div>
+                <div class="circle" id="hour">00</div>
+                <p>Hour</p>
+            </div>
+            <div>
+                <div class="circle" id="minute">00</div>
+                <p>Minute</p>
+            </div>
+            <div>
+                <div class="circle" id="second">00</div>
+                <p>Second</p>
+            </div>
+        </div>
+
+        <button>Save the Date</button>
+    </div>
+
     <!-- ACARA -->
    <!-- GANTI BAGIAN ACARA LAMA DENGAN INI -->
 
@@ -854,35 +1362,7 @@ content{
 
     </div>
 
-        <!-- COUNTDOWN -->
-    <div class="date-box">
-        <h2 class="title">Date</h2>
-
-        <div class="time-grid">
-            <div>
-                <div class="circle" id="day">00</div>
-                <p>Day</p>
-            </div>
-            <div>
-                <div class="circle" id="hour">00</div>
-                <p>Hour</p>
-            </div>
-            <div>
-                <div class="circle" id="minute">00</div>
-                <p>Minute</p>
-            </div>
-            <div>
-                <div class="circle" id="second">00</div>
-                <p>Second</p>
-            </div>
-        </div>
-
-        <button>Save the Date</button>
-    </div>
-
-    <!-- HADIAH -->
-   
-    <!-- HADIAH PERNIKAHAN -->
+     <!-- HADIAH PERNIKAHAN -->
 <!-- GANTI BAGIAN HADIAH LAMA DENGAN INI -->
 <div class="card2 hadiah-box">
 
@@ -908,7 +1388,6 @@ content{
         <p>a.n Saniah</p>
     </div>
 
-</div>
     <!-- UCAPAN -->
     <div class="card2">
         <h3>💌 Ucapan</h3>
@@ -1031,6 +1510,39 @@ function createFlower() {
 }
 
 setInterval(createFlower, 400);
+
+// ANIMASI SCROLL HALUS
+const items = document.querySelectorAll(
+'.box,.quote-box,.gallery img,.date-box,.lokasi-box,.hadiah-box,.acara-box,.penutup-box,.card2'
+);
+
+// kasih class reveal otomatis
+items.forEach(item=>{
+    item.classList.add('reveal');
+});
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('show');
+
+        }else{
+
+            entry.target.classList.remove('show');
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+items.forEach(item=>{
+    observer.observe(item);
+});
 
 </script>
 
